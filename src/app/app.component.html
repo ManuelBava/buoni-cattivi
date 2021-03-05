@@ -1,0 +1,23 @@
+Lista Buoni e Cattivi
+<br>
+<app-form-panel (buonoOutput)="buono($event)" (cattivoOutput)="cattivo($event)" [nomeInput]="nome"></app-form-panel>
+<br><br>
+<div>
+  <ol *ngIf="listaBuoni">
+    <h3>Lista buoni</h3>
+    <li *ngFor="let b of arrayBuoni; index as i">
+      {{b}}
+      <button (click)="rimuoviBuono()">Rimuovi</button>
+      <button (click)="spostaInCattivi()">Sposta in cattivi</button>
+    </li>
+  </ol>
+  <ul *ngIf="listaCattivi">
+  <h3>Lista cattivi</h3>
+    <li *ngFor="let c of arrayCattivi; index as i">
+      {{c}}
+      <button (click)="rimuoviCattivo()">Rimuovi</button>
+      <button (click)="spostaInBuoni()">Sposta in buoni</button>
+    </li>
+  </ul>
+</div>
+<router-outlet></router-outlet>
